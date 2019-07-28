@@ -1,8 +1,11 @@
-package com.openclassrooms.realestatemanager;
+package com.openclassrooms.realestatemanager.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.openclassrooms.realestatemanager.R;
+import com.openclassrooms.realestatemanager.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
         this.configureTextViewMain();
         this.configureTextViewQuantity();
+        Utils.isInternetFormatedAvailable();
     }
 
     private void configureTextViewMain(){
         this.textViewMain.setTextSize(15);
-        this.textViewMain.setText("Le premier bien immobilier enregistré vaut ");
+        this.textViewMain.setText(getString(R.string.valeur_premier_bien));
     }
 
     private void configureTextViewQuantity(){

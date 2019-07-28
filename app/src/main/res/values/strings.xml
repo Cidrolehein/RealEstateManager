@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Real Estate Manager</string>
+    <string name="ma_super_activit_num_ro_2">Ma super activité numéro 2</string>
+    <string name="voici_la_valeur_d_un_bien">Voici la valeur d\'un bien :</string>
+    <string name="_0">0</string>
+    <string name="valeur_premier_bien">Le premier bien immobilier enregistré vaut </string>
 </resources>
