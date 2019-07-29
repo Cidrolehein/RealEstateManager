@@ -1,5 +1,6 @@
 package com.openclassrooms.realestatemanager.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -8,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.openclassrooms.realestatemanager.R;
 import com.openclassrooms.realestatemanager.utils.Utils;
 
+/**
+ * MainActivity to call classes before the main kotlin activity
+ */
 public class MainActivity extends AppCompatActivity {
 
     private TextView textViewMain;
@@ -25,14 +29,39 @@ public class MainActivity extends AppCompatActivity {
         this.configureTextViewQuantity();
         Utils.isInternetFormatedAvailable();
         Utils.isOnline();
+
     }
 
-    private void configureTextViewMain(){
+    /**
+     * Start kotlin main activity here to restart when we call the back button
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Start main Kotlin activity with RecyclerView
+        startMainActivity();
+    }
+
+    /**
+     * Start the main kotlin activity with main recyclerView
+     */
+    private void startMainActivity() {
+        Intent intent = new Intent(this, MainRecyclerViewActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Main text of MainActivity
+     */
+    private void configureTextViewMain() {
         this.textViewMain.setTextSize(15);
         this.textViewMain.setText(getString(R.string.valeur_premier_bien));
     }
 
-    private void configureTextViewQuantity(){
+    /**
+     * Text quantity of MainActivity
+     */
+    private void configureTextViewQuantity() {
         String quantity = String.valueOf(Utils.convertDollarToEuro(100)); // change int to String
         this.textViewQuantity.setTextSize(20);
         this.textViewQuantity.setText(quantity);
