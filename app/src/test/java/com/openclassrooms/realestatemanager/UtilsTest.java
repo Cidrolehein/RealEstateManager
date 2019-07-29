@@ -29,4 +29,10 @@ public class UtilsTest {
     public void isInternetAvailable() {
         assertTrue(Utils.isInternetFormatedAvailable());
     }
+
+    @Test
+    public void isOnline() {
+        assertTrue(Utils.isOnline());
+    }
+
 }

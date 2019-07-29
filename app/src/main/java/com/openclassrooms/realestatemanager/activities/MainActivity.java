@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         this.configureTextViewMain();
         this.configureTextViewQuantity();
         Utils.isInternetFormatedAvailable();
+        Utils.isOnline();
     }
 
     private void configureTextViewMain(){
