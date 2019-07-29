@@ -5,14 +5,21 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.openclassrooms.realestatemanager.R;
 import com.openclassrooms.realestatemanager.utils.Utils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * MainActivity to call classes before the main kotlin activity
  */
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     private TextView textViewMain;
     private TextView textViewQuantity;
@@ -21,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
 
         this.textViewMain = findViewById(R.id.activity_main_activity_text_view_main); // change the wrong layout (activity_second to activity_main)
         this.textViewQuantity = findViewById(R.id.activity_main_activity_text_view_quantity);
