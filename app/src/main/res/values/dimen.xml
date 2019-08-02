@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main RecyclerView -->
+    <dimen name="size_image_height_main_recyclerview">200dp</dimen>
+    <dimen name="card_layout_margin">5dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_title_size">30sp</dimen>
+    <dimen name="card_text_layout_margin_start">16dp</dimen>
+    <dimen name="card_text_layout_margin_end">16dp</dimen>
+</resources>
