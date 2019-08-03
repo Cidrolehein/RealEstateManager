@@ -9,7 +9,19 @@
     </style>
     <!-- Toolbar Style. -->
     <style name="MyToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/boogaloo_regular</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+    </style>
+    <!-- MyRecylerViewTheme -->
+    <style name="Title" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/libre_baskerville_font_family</item>
+        <item name="android:textSize">@dimen/card_title_size</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    <style name="Subtitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/indie_flower_regular</item>
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:textColor">@color/colorGray</item>
     </style>
 
 </resources>
