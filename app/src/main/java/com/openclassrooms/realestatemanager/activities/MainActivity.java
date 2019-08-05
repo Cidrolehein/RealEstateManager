@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
      * Start the main kotlin activity with main recyclerView
      */
     private void startMainActivity() {
-        Intent intent = new Intent(this, MainRecyclerViewActivity.class);
+        Intent intent = new Intent(this, MainPlaceActivity.class);
         startActivity(intent);
     }
 
