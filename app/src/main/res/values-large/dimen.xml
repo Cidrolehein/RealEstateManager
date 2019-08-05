@@ -11,6 +11,7 @@
     <dimen name="card_padding_text">5dp</dimen>
     <dimen name="card_title_size">20sp</dimen>
     <dimen name="subtitle_text_size">20sp</dimen>
+    <dimen name="card_width">300dp</dimen>
     <!-- Toolbar -->
     <dimen name="toolbar_text_size">20sp</dimen>
 </resources>

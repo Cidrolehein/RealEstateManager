@@ -18,6 +18,13 @@
         <item name="android:textSize">@dimen/card_title_size</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
+
+    <style name="Price" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/libre_baskerville_font_family</item>
+        <item name="android:textSize">@dimen/card_title_size</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
     <style name="Subtitle" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/indie_flower_regular</item>
         <item name="android:textSize">@dimen/subtitle_text_size</item>

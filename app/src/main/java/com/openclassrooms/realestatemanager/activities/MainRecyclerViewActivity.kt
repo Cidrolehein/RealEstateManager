@@ -25,7 +25,7 @@ class MainRecyclerViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_recycler_view)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setTitleTextColor(resources.getColor(R.color.colorTitle))
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.colorTitle))
         setSupportActionBar(toolbar)
 
         createRecyclerView()

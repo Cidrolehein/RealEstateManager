@@ -1,30 +1,41 @@
 package com.openclassrooms.realestatemanager.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.openclassrooms.realestatemanager.R
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    private val titles = arrayOf("Chapter One",
-            "Chapter Two", "Chapter Three", "Chapter Four",
-            "Chapter Five", "Chapter Six", "Chapter Seven",
-            "Chapter Eight")
+    private val titles = arrayOf("House",
+            "Flat", "House", "Duplex",
+            "House", "Penthouse", "House",
+            "Duplex")
 
-    private val details = arrayOf("Item one details", "Item two details",
-            "Item three details", "Item four details",
-            "Item file details", "Item six details",
-            "Item seven details", "Item eight details")
+    private val localisation = arrayOf("Manhatten", "Montauk",
+            "Brooklin", "Southempton",
+            "Upper Est Side", "Hempton Bays",
+            "Manhatten", "Upper Est Side")
+
+    private val price = arrayOf("$17,870,000", "$17,870,000",
+            "$17,870,000", "$17,870,000",
+            "$17,870,000", "$17,870,000",
+            "$17,870,000", "$17,870,000")
 
     private val images = intArrayOf(R.drawable.android_image_1,
             R.drawable.android_image_1, R.drawable.android_image_1,
             R.drawable.android_image_1, R.drawable.android_image_1,
             R.drawable.android_image_1, R.drawable.android_image_1,
             R.drawable.android_image_1)
+
+    var cardPosition: Int = 0
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context)
@@ -37,21 +48,44 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
+        val context = viewHolder.itemView.context // get context for bg color
+
         viewHolder.itemTitle.text = titles[i]
-        viewHolder.itemDetail.text = details[i]
+        viewHolder.itemLocalisation.text = localisation[i]
         viewHolder.itemImage.setImageResource(images[i])
+        viewHolder.itemPrice.text = price[i]
+        // change bg color of card selected and adapt text color
+        if (cardPosition == i) {
+            viewHolder.card.setCardBackgroundColor(ContextCompat.getColor(context,
+                    R.color.colorPrimary))
+            viewHolder.itemTitle.setTextColor(Color.WHITE)
+        } else {
+            viewHolder.card.setCardBackgroundColor(Color.WHITE)
+            viewHolder.itemTitle.setTextColor(ContextCompat.getColor(context,
+                    R.color.colorPrimary))
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var itemImage: ImageView
-        var itemTitle: TextView
-        var itemDetail: TextView
+        var itemImage: ImageView = itemView.findViewById(R.id.item_image)
+        var itemTitle: TextView = itemView.findViewById(R.id.item_title)
+        var itemLocalisation: TextView = itemView.findViewById(R.id.item_localisation)
+        var itemPrice: TextView = itemView.findViewById(R.id.item_price)
+        var card: CardView = itemView.findViewById(R.id.card_view)
 
         init {
-            itemImage = itemView.findViewById(R.id.item_image)
-            itemTitle = itemView.findViewById(R.id.item_title)
-            itemDetail = itemView.findViewById(R.id.item_detail)
+
+            // on item selected
+            itemView.setOnClickListener { v: View ->
+                val position: Int = adapterPosition
+                cardPosition = adapterPosition
+                notifyDataSetChanged()
+
+                Snackbar.make(v, "Click detected on item $position",
+                        Snackbar.LENGTH_LONG).setAction("Action", null).show()
+            }
+
         }
     }
 }
