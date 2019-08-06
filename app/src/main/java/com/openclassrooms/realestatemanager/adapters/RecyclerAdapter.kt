@@ -1,6 +1,9 @@
 package com.openclassrooms.realestatemanager.adapters
 
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
+import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +14,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.openclassrooms.realestatemanager.R
+import com.openclassrooms.realestatemanager.activities.MainPlaceActivity
+import com.openclassrooms.realestatemanager.fragments.DetailListFragment
+import java.text.FieldPosition
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter constructor(val mItemClickListener:ItemClickListener) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private val titles = arrayOf("House",
             "Flat", "House", "Duplex",
@@ -37,6 +43,10 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var cardPosition: Int = 0
 
+    interface ItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.card_layout, viewGroup, false)
@@ -54,15 +64,27 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         viewHolder.itemLocalisation.text = localisation[i]
         viewHolder.itemImage.setImageResource(images[i])
         viewHolder.itemPrice.text = price[i]
-        // change bg color of card selected and adapt text color
-        if (cardPosition == i) {
-            viewHolder.card.setCardBackgroundColor(ContextCompat.getColor(context,
-                    R.color.colorPrimary))
-            viewHolder.itemTitle.setTextColor(Color.WHITE)
-        } else {
-            viewHolder.card.setCardBackgroundColor(Color.WHITE)
-            viewHolder.itemTitle.setTextColor(ContextCompat.getColor(context,
-                    R.color.colorPrimary))
+        // on item selected
+        viewHolder.itemView.setOnClickListener { v: View ->
+            val position: Int = viewHolder.adapterPosition
+            cardPosition = viewHolder.adapterPosition
+            notifyDataSetChanged()
+
+            Snackbar.make(v, "Click detected on item $position",
+                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+            // change bg color of card selected and adapt text color
+            if (cardPosition == i) {
+                viewHolder.card.setCardBackgroundColor(ContextCompat.getColor(context,
+                        R.color.colorPrimary))
+                viewHolder.itemTitle.setTextColor(Color.WHITE)
+            } else {
+                viewHolder.card.setCardBackgroundColor(Color.WHITE)
+                viewHolder.itemTitle.setTextColor(ContextCompat.getColor(context,
+                        R.color.colorPrimary))
+            }
+
+            mItemClickListener.onItemClick(position)
+
         }
     }
 
@@ -74,19 +96,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         var itemPrice: TextView = itemView.findViewById(R.id.item_price)
         var card: CardView = itemView.findViewById(R.id.card_view)
 
-        init {
-
-            // on item selected
-            itemView.setOnClickListener { v: View ->
-                val position: Int = adapterPosition
-                cardPosition = adapterPosition
-                notifyDataSetChanged()
-
-                Snackbar.make(v, "Click detected on item $position",
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show()
-            }
-
-        }
     }
+
 }
 
