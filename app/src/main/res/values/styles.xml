@@ -31,4 +31,10 @@
         <item name="android:textColor">@color/colorGray</item>
     </style>
 
+    <style name="Title_List">
+        <item name="android:fontFamily">@font/libre_baskerville_font_family</item>
+        <item name="android:textSize">@dimen/card_title_size</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
 </resources>

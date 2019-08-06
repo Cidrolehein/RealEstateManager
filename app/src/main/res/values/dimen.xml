@@ -10,7 +10,9 @@
     <dimen name="card_subtext_layout_margin_start">21dp</dimen>
     <dimen name="card_padding_text">1dp</dimen>
     <dimen name="card_title_size">20sp</dimen>
+    <dimen name="detail_title_size">25sp</dimen>
     <dimen name="subtitle_text_size">20sp</dimen>
+    <dimen name="paragraph_text_size">15sp</dimen>
     <dimen name="card_width">200dp</dimen>
     <!-- Toolbar -->
     <dimen name="toolbar_text_size">20sp</dimen>
