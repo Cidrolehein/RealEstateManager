@@ -12,8 +12,11 @@
     <dimen name="card_title_size">20sp</dimen>
     <dimen name="detail_title_size">25sp</dimen>
     <dimen name="subtitle_text_size">20sp</dimen>
+    <dimen name="icon_text_size_normal">10sp</dimen>
     <dimen name="paragraph_text_size">15sp</dimen>
+    <dimen name="paragraph_text_size_normal">10sp</dimen>
     <dimen name="card_width">200dp</dimen>
+    <dimen name="card_title_size_normal">15sp</dimen>
     <!-- Toolbar -->
     <dimen name="toolbar_text_size">20sp</dimen>
 </resources>

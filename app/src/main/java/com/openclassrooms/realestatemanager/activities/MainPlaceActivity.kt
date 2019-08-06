@@ -43,7 +43,7 @@ class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener
     /**
      * begin transaction of a fragment
      */
-    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
+    private inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
         val fragmentTransaction = beginTransaction()
         fragmentTransaction.func()
         fragmentTransaction.addToBackStack(null)
@@ -60,7 +60,7 @@ class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener
     /**
      * replace fragment
      */
-    fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
+    private fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
         supportFragmentManager.inTransaction{replace(frameId, fragment)}
     }
 
