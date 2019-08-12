@@ -72,19 +72,20 @@ class RecyclerAdapter constructor(val mItemClickListener:ItemClickListener) : Re
 
             Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
-            // change bg color of card selected and adapt text color
-            if (cardPosition == i) {
-                viewHolder.card.setCardBackgroundColor(ContextCompat.getColor(context,
-                        R.color.colorPrimary))
-                viewHolder.itemTitle.setTextColor(Color.WHITE)
-            } else {
-                viewHolder.card.setCardBackgroundColor(Color.WHITE)
-                viewHolder.itemTitle.setTextColor(ContextCompat.getColor(context,
-                        R.color.colorPrimary))
-            }
 
             mItemClickListener.onItemClick(position)
 
+        }
+
+        // change bg color of card selected and adapt text color
+        if (cardPosition == i) {
+            viewHolder.card.setCardBackgroundColor(ContextCompat.getColor(context,
+                    R.color.colorPrimary))
+            viewHolder.itemTitle.setTextColor(Color.WHITE)
+        } else {
+            viewHolder.card.setCardBackgroundColor(Color.WHITE)
+            viewHolder.itemTitle.setTextColor(ContextCompat.getColor(context,
+                    R.color.colorPrimary))
         }
     }
 
