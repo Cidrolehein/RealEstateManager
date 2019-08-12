@@ -1,7 +1,9 @@
 package com.openclassrooms.realestatemanager.activities
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -34,9 +36,13 @@ class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener
         recyclerView.adapter = RecyclerAdapter(this)
         adapter = RecyclerAdapter(this)
 
+        // Configure screen
+        detectSizeScreen()
+        screenSizeConditions()
+
     }
 
-    override fun onItemClick(position: Int){
+    override fun onItemClick(position: Int) {
         replaceFragment(fragmentDetailList, R.id.fragment_details_container)
     }
 
@@ -53,7 +59,7 @@ class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener
     /**
      * add fragment
      */
-    fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int){
+    fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
         supportFragmentManager.inTransaction { add(frameId, fragment) }
     }
 
@@ -61,7 +67,31 @@ class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener
      * replace fragment
      */
     private fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
-        supportFragmentManager.inTransaction{replace(frameId, fragment)}
+        supportFragmentManager.inTransaction { replace(frameId, fragment) }
+    }
+
+    /**
+     * Detect the size of screen
+     */
+    private fun detectSizeScreen() {
+        //Determine screen size
+        when {
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK == Configuration.SCREENLAYOUT_SIZE_LARGE -> Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show()
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK == Configuration.SCREENLAYOUT_SIZE_XLARGE -> Toast.makeText(this, "X Large screen", Toast.LENGTH_LONG).show()
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK == Configuration.SCREENLAYOUT_SIZE_NORMAL -> Toast.makeText(this, "Normal sized screen", Toast.LENGTH_LONG).show()
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK == Configuration.SCREENLAYOUT_SIZE_SMALL -> Toast.makeText(this, "Small sized screen", Toast.LENGTH_LONG).show()
+            else -> Toast.makeText(this, "Screen size is neither large, normal or small", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    /**
+     * Conditions of different screen size
+     */
+    private fun screenSizeConditions() {
+        when {
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK == Configuration.SCREENLAYOUT_SIZE_XLARGE -> addFragment(fragmentDetailList, R.id.fragment_details_container)
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK == Configuration.SCREENLAYOUT_SIZE_LARGE -> addFragment(fragmentDetailList, R.id.fragment_details_container)
+        }
     }
 
 }
