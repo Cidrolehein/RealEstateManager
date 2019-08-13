@@ -7,5 +7,13 @@
     <string name="main_picture">Main picture</string>
     <string name="description">Description</string>
     <string name="paragraph">Cum saepe multa, tum memini domi in hemicyclio sedentem, ut solebat, cum et ego essem una et pauci admodum familiares, in eum sermonem illum incidere qui tum forte multis erat in ore. Meministi enim profecto, Attice, et eo magis, quod P. Sulpicio utebare multum, cum is tribunus plebis capitali odio a Q. Pompeio, qui tum erat consul, dissideret, quocum coniunctissime et amantissime vixerat, quanta esset hominum vel admiratio vel querella.</string>
+    <string name="media_picture">Media Picture</string>
+    <string name="second_media_picture">Second media picture</string>
+    <string name="third_media_picture">Third media picture</string>
+    <string name="media_title">Media</string>
+    <string name="icon_description">Icon description</string>
+    <string name="surface">Surface</string>
+    <string name="number_of_rooms">Number of rooms</string>
+    <string name="number_of_bathrooms">Number of bathrooms</string>
 
 </resources>

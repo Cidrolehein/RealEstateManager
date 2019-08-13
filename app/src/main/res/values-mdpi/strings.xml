@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="media_picture">Media Picture</string>
+    <string name="second_media_picture">Second media picture</string>
+    <string name="third_media_picture">Third media picture</string>
+    <string name="media_title">Media</string>
+    <string name="icon_description">Icon description</string>
+    <string name="surface">Surface</string>
+    <string name="number_of_rooms">Number of rooms</string>
+    <string name="number_of_bathrooms">Number of bathrooms</string>
+</resources>

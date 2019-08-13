@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Media"
+            android:text="@string/media_title"
             android:textSize="@dimen/detail_title_size" />
 
         <LinearLayout
@@ -30,19 +30,22 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:padding="5dp"
-                android:src="@drawable/interieur" />
+                android:src="@drawable/interieur"
+                android:contentDescription="@string/media_picture" />
 
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:padding="5dp"
-                android:src="@drawable/interieur" />
+                android:src="@drawable/interieur"
+                android:contentDescription="@string/second_media_picture" />
 
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:padding="5dp"
-                android:src="@drawable/interieur" />
+                android:src="@drawable/interieur"
+                android:contentDescription="@string/third_media_picture" />
 
         </LinearLayout>
 
@@ -88,12 +91,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_open_surface_24dp" />
+                        android:src="@drawable/ic_open_surface_24dp"
+                        android:contentDescription="@string/icon_description" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surface"
+                        android:text="@string/surface"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         style="@style/Icon_text_normal"/>
@@ -111,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_open_surface_24dp" />
+                    android:src="@drawable/ic_open_surface_24dp"
+                    android:contentDescription="@string/icon_description" />
 
                 <TextView
                     style="@style/Icon_text_normal"
@@ -119,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="Number of rooms" />
+                    android:text="@string/number_of_rooms" />
 
                 </LinearLayout>
                 </LinearLayout>
@@ -146,7 +151,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ic_open_surface_24dp" />
+                            android:src="@drawable/ic_open_surface_24dp"
+                            android:contentDescription="@string/icon_description" />
 
                         <TextView
                             style="@style/Icon_text_normal"
@@ -154,7 +160,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:text="Number of bathrooms" />
+                            android:text="@string/number_of_bathrooms" />
 
                         </LinearLayout>
 
@@ -172,7 +178,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ic_open_surface_24dp" />
+                            android:src="@drawable/ic_open_surface_24dp"
+                            android:contentDescription="@string/icon_description" />
 
                         <TextView
                             style="@style/Icon_text_normal"
@@ -180,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:text="Number of bedrooms" />
+                            android:text="@string/number_of_bathrooms" />
 
                     </LinearLayout>
 
@@ -190,4 +197,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

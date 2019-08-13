@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Media"
+            android:text="@string/media_title"
             android:textSize="@dimen/detail_title_size" />
 
         <LinearLayout
@@ -30,19 +30,22 @@
                 android:layout_width="100dp"
                 android:layout_height="110dp"
                 android:padding="5dp"
-                android:src="@drawable/interieur" />
+                android:src="@drawable/interieur"
+                android:contentDescription="@string/media_picture" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="110dp"
                 android:padding="5dp"
-                android:src="@drawable/interieur" />
+                android:src="@drawable/interieur"
+                android:contentDescription="@string/media_picture" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="110dp"
                 android:padding="5dp"
-                android:src="@drawable/interieur" />
+                android:src="@drawable/interieur"
+                android:contentDescription="@string/media_picture" />
 
         </LinearLayout>
 
@@ -88,12 +91,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_open_surface_50dp" />
+                        android:src="@drawable/ic_open_surface_50dp"
+                        android:contentDescription="@string/icon_description" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surface"
+                        android:text="@string/surface"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         style="@style/Subtitle"/>
@@ -111,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_open_surface_50dp" />
+                    android:src="@drawable/ic_open_surface_50dp"
+                    android:contentDescription="@string/icon_description" />
 
                 <TextView
                     style="@style/Subtitle"
@@ -119,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="Number of rooms" />
+                    android:text="@string/number_of_rooms" />
 
                 </LinearLayout>
                 </LinearLayout>
@@ -146,7 +151,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ic_open_surface_50dp" />
+                            android:src="@drawable/ic_open_surface_50dp"
+                            android:contentDescription="@string/icon_description" />
 
                         <TextView
                             style="@style/Subtitle"
@@ -154,7 +160,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:text="Number of bathrooms" />
+                            android:text="@string/number_of_bathrooms" />
 
                         </LinearLayout>
 
@@ -172,7 +178,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ic_open_surface_50dp" />
+                            android:src="@drawable/ic_open_surface_50dp"
+                            android:contentDescription="@string/icon_description" />
 
                         <TextView
                             style="@style/Subtitle"
@@ -180,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:text="Number of bedrooms" />
+                            android:text="@string/number_of_bathrooms" />
 
                     </LinearLayout>
 
