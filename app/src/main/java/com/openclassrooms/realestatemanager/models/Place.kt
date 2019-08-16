@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Place(
 
         @PrimaryKey
-        val id: Int?,
+        val id: Long,
         val placeTitle: String?,
         val placePrice: Int?
 )

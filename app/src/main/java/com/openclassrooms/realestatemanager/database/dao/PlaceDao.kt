@@ -1,5 +1,6 @@
 package com.openclassrooms.realestatemanager.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -10,6 +11,6 @@ interface PlaceDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createPlace(place: Place)
 
-    @Query("SELECT * FROM Place WHERE id = :placeId")
-    fun getPlace(placeId: Long)
+    @Query("SELECT * FROM Place WHERE id = :userId")
+    fun getPlace(userId: Long): LiveData<Place>
 }

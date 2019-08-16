@@ -14,6 +14,6 @@ data class Item(
         val id: Int?,
         val placeTitle: String?,
         val placePrice: Int?,
-        val placeId: Int?
+        val placeId: Long?
 
 )
