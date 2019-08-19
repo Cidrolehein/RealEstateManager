@@ -20,8 +20,8 @@ class ItemDaoTest {
     // FOR DATA
     private var database: SaveMyPlaceDatabase? = null
     // DATA SET FOR TEST
-    private val PLACE_ID: Long = 1
-    private val PLACE_DEMO = Place(PLACE_ID, "Home", 100000)
+    private val placeId: Long = 1
+    private val placeDemo = Place(placeId, "Home", 100000)
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -45,10 +45,10 @@ class ItemDaoTest {
     @Throws(InterruptedException::class)
     fun insertAndGetPlace() {
         // BEFORE : Adding a new user
-        this.database?.placeDao()?.createPlace(PLACE_DEMO)
+        this.database?.placeDao()?.createPlace(placeDemo)
         // TEST
-        val place = LiveDataTestUtil().getValue(this.database!!.placeDao().getPlace(PLACE_ID))
-        assertTrue(place?.placeTitle.equals(PLACE_DEMO.placeTitle) && place!!.id == PLACE_ID)
+        val place = LiveDataTestUtil().getValue(this.database!!.placeDao().getPlace(placeId))
+        assertTrue(place?.placeTitle.equals(placeDemo.placeTitle) && place!!.id == placeId)
     }
 
 }

@@ -7,6 +7,7 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
 
+@Suppress("UNCHECKED_CAST")
 class LiveDataTestUtil {
 
     @Throws(InterruptedException::class)
