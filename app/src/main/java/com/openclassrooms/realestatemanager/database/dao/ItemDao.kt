@@ -5,9 +5,9 @@ import androidx.room.Query
 import androidx.room.Update
 import com.openclassrooms.realestatemanager.models.Item
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 
-
-
+@Dao
 interface ItemDao {
 
     @Query("SELECT * FROM Item WHERE placeId = :placeId")
