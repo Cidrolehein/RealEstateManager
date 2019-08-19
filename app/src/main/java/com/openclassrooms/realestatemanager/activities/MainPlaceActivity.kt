@@ -12,16 +12,16 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.openclassrooms.realestatemanager.R
-import com.openclassrooms.realestatemanager.adapters.RecyclerAdapter
+import com.openclassrooms.realestatemanager.placelist.recyclerview.PlaceRecyclerAdapter
 import com.openclassrooms.realestatemanager.fragments.DetailListFragment
 
 /**
  * Main Kotlin activity to implement RecyclerView
  */
-class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener {
+class MainPlaceActivity : AppCompatActivity(), PlaceRecyclerAdapter.ItemClickListener {
 
     private val fragmentDetailList = DetailListFragment()
-    private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
+    private var mAdapterPlace: RecyclerView.Adapter<PlaceRecyclerAdapter.ViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +33,8 @@ class MainPlaceActivity : AppCompatActivity(), RecyclerAdapter.ItemClickListener
         // RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RecyclerAdapter(this)
-        adapter = RecyclerAdapter(this)
+        recyclerView.adapter = PlaceRecyclerAdapter(this)
+        mAdapterPlace = PlaceRecyclerAdapter(this)
 
         // Configure screen
         detectSizeScreen()

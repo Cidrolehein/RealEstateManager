@@ -1,4 +1,4 @@
-package com.openclassrooms.realestatemanager.adapters
+package com.openclassrooms.realestatemanager.placelist.recyclerview
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -13,9 +13,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.openclassrooms.realestatemanager.R
 import com.openclassrooms.realestatemanager.models.Place
 
-class RecyclerAdapter constructor(private val mItemClickListener: ItemClickListener,
-                                  private var places: List<Place>)
-    : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClickListener,
+                                       private var places: List<Place>)
+    : RecyclerView.Adapter<PlaceRecyclerAdapter.ViewHolder>() {
 
     private val titles = arrayOf("House",
             "Flat", "House", "Duplex",
