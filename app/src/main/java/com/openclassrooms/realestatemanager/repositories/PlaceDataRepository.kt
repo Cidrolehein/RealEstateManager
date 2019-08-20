@@ -1,12 +1,15 @@
 package com.openclassrooms.realestatemanager.repositories
 
 import com.openclassrooms.realestatemanager.database.dao.PlaceDao
+import androidx.lifecycle.LiveData
+import com.openclassrooms.realestatemanager.models.Place
 
 
-class PlaceDataRepository (placeDao: PlaceDao) {
+class PlaceDataRepository constructor(private val placeDao: PlaceDao) {
 
-    init {
-
+    // --- GET USER ---
+    fun getUser(userId: Long): LiveData<Place> {
+        return placeDao.getPlace(userId)
     }
 
 }
