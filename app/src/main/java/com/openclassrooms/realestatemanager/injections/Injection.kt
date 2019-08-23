@@ -8,7 +8,7 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
 
-class injection {
+class Injection {
 
     fun provideItemDataSource(context: Context): ItemDataRepository {
         val database = SaveMyPlaceDatabase.DatabaseProvider.getInstance(context)

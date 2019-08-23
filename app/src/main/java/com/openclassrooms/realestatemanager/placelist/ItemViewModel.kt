@@ -7,7 +7,6 @@ import com.openclassrooms.realestatemanager.repositories.PlaceDataRepository
 import java.util.concurrent.Executor
 import androidx.lifecycle.LiveData
 import com.openclassrooms.realestatemanager.models.Place
-import android.os.AsyncTask.execute
 import com.openclassrooms.realestatemanager.models.Item
 
 
@@ -21,35 +20,34 @@ class ItemViewModel constructor(private val itemDataSource: ItemDataRepository,
 
     fun init(placeId: Long) {
         currentPlace = placeDataSource.getUser(placeId)
+    }
 
-        // -------------
-        // FOR USER
-        // -------------
+    // -------------
+    // FOR USER
+    // -------------
 
-        fun getUser(placeId: Long): LiveData<Place> {
-            return currentPlace
-        }
+    fun getPlace(placeId: Long): LiveData<Place> {
+        return currentPlace
+    }
 
-        // -------------
-        // FOR ITEM
-        // -------------
+    // -------------
+    // FOR ITEM
+    // -------------
 
-        fun getItems(placeId: Long): LiveData<List<Item>> {
-            return itemDataSource.getItems(placeId)
-        }
+    fun getItems(placeId: Long): LiveData<List<Item>> {
+        return itemDataSource.getItems(placeId)
+    }
 
-        fun createItem(item: Item) {
-            executor.execute { itemDataSource.createItem(item) }
-        }
+    fun createItem(item: Item) {
+        executor.execute { itemDataSource.createItem(item) }
+    }
 
-        fun deleteItem(itemId: Long) {
-            executor.execute { itemDataSource.deleteItem(itemId) }
-        }
+    fun deleteItem(itemId: Long) {
+        executor.execute { itemDataSource.deleteItem(itemId) }
+    }
 
-        fun updateItem(item: Item) {
-            executor.execute { itemDataSource.updateItem(item) }
-        }
-
+    fun updateItem(item: Item) {
+        executor.execute { itemDataSource.updateItem(item) }
     }
 
 }

@@ -11,10 +11,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.openclassrooms.realestatemanager.R
-import com.openclassrooms.realestatemanager.models.Place
 
-class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClickListener,
-                                       private var places: List<Place>)
+class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClickListener)
     : RecyclerView.Adapter<PlaceRecyclerAdapter.ViewHolder>() {
 
     private val titles = arrayOf("House",
@@ -51,25 +49,16 @@ class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClick
     }
 
     override fun getItemCount(): Int {
-        return places.size
-    }
-
-    private fun getPlace(position: Int): Place {
-        return this.places[position]
-    }
-
-    fun updateData(places: List<Place>) {
-        this.places = places
-        this.notifyDataSetChanged()
+        return titles.size
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
         val context = viewHolder.itemView.context // get context for bg color
 
-        viewHolder.itemTitle.text = getPlace(i).placeTitle
+        viewHolder.itemTitle.text = titles[i]
         viewHolder.itemLocalisation.text = localisation[i]
         viewHolder.itemImage.setImageResource(images[i])
-        viewHolder.itemPrice.text = getPlace(i).placePrice.toString()
+        viewHolder.itemPrice.text = price[i]
         // On item selected
         viewHolder.itemView.setOnClickListener { v: View ->
             val position: Int = viewHolder.adapterPosition

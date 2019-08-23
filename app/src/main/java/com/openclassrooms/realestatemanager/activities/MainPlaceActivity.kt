@@ -59,7 +59,7 @@ class MainPlaceActivity : AppCompatActivity(), PlaceRecyclerAdapter.ItemClickLis
     /**
      * add fragment
      */
-    fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
+    private fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
         supportFragmentManager.inTransaction { add(frameId, fragment) }
     }
 
