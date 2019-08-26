@@ -59,6 +59,7 @@
             android:textSize="@dimen/detail_title_size" />
 
         <TextView
+            android:id="@+id/place_description"
             style="@style/Title_List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,12 +96,12 @@
                         android:contentDescription="@string/icon_description" />
 
                     <TextView
+                        style="@style/Icon_text_normal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/surface"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        style="@style/Icon_text_normal"/>
+                        android:text="@string/surface" />
 
                 </LinearLayout>
 

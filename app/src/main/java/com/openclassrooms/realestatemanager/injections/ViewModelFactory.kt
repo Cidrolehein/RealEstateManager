@@ -2,7 +2,7 @@ package com.openclassrooms.realestatemanager.injections
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.openclassrooms.realestatemanager.placelist.ItemViewModel
+import com.openclassrooms.realestatemanager.todolist.ItemViewModel
 import com.openclassrooms.realestatemanager.repositories.ItemDataRepository
 import com.openclassrooms.realestatemanager.repositories.PlaceDataRepository
 import java.util.concurrent.Executor

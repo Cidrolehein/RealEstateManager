@@ -11,8 +11,6 @@ import androidx.room.PrimaryKey
         childColumns = arrayOf("placeId"))])
 
 data class Item constructor(
-
-        var textDescription: String,
         var placeId: Long?
 
 )
@@ -21,8 +19,7 @@ data class Item constructor(
 
         @PrimaryKey(autoGenerate = true)
         var id: Long? = null
-        var text:String? = textDescription
         var pId: Long? = placeId
-        var isSelected: Boolean = false
+        var placeInterests: String? = null
 
 }

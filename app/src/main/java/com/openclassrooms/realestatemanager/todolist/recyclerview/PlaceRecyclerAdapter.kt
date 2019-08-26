@@ -1,4 +1,4 @@
-package com.openclassrooms.realestatemanager.placelist.recyclerview
+package com.openclassrooms.realestatemanager.todolist.recyclerview
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -11,8 +11,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.openclassrooms.realestatemanager.R
+import com.openclassrooms.realestatemanager.models.Place
 
-class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClickListener)
+class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClickListener,
+                                       private val places: MutableList<Place>?)
     : RecyclerView.Adapter<PlaceRecyclerAdapter.ViewHolder>() {
 
     private val titles = arrayOf("House",
@@ -49,16 +51,16 @@ class PlaceRecyclerAdapter constructor(private val mItemClickListener: ItemClick
     }
 
     override fun getItemCount(): Int {
-        return titles.size
+        return places!!.size
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
         val context = viewHolder.itemView.context // get context for bg color
 
-        viewHolder.itemTitle.text = titles[i]
-        viewHolder.itemLocalisation.text = localisation[i]
+        viewHolder.itemTitle.text = places?.get(i)!!.placeTitle
+        viewHolder.itemLocalisation.text = places[i].placeAddress
         viewHolder.itemImage.setImageResource(images[i])
-        viewHolder.itemPrice.text = price[i]
+        viewHolder.itemPrice.text = places[i].placePrice
         // On item selected
         viewHolder.itemView.setOnClickListener { v: View ->
             val position: Int = viewHolder.adapterPosition

@@ -1,4 +1,4 @@
-package com.openclassrooms.realestatemanager.placelist
+package com.openclassrooms.realestatemanager.todolist
 
 import androidx.annotation.Nullable
 import androidx.lifecycle.ViewModel

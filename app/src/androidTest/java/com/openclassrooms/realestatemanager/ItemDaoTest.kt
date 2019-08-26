@@ -24,15 +24,11 @@ class ItemDaoTest {
     // FOR DATA
     private var database: SaveMyPlaceDatabase? = null
     // DATA SET FOR TEST
-    private val placeId: Long = 1
-    private val placeDemo = Place(placeId, "Home", 100000)
-    private val newPlaceDescription = Item("Lorem ipsum dolor sit amet, " +
-            "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et " +
-            "dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " +
-            "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
-            "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla " +
-            "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui " +
-            "officia deserunt mollit anim id est laborum.", placeId)
+    private val placeId: Long = 0
+    private val placeDemo = Place(placeId, "house", "Manhattan", "17.870.000",
+            5, "Cum saepe multa, tum memini domi in hemicyclio sedentem, ut solebat, cum et ego essem una et pauci admodum familiares, in eum sermonem illum incidere qui tum forte multis erat in ore. Meministi enim profecto, Attice, et eo magis, quod P. Sulpicio utebare multum, cum is tribunus plebis capitali odio a Q. Pompeio, qui tum erat consul, dissideret, quocum coniunctissime et amantissime vixerat, quanta esset hominum vel admiratio vel querella.",
+            "picture", "Address Manhattan", "Free", "06-12-18", "John")
+    private val newPlaceDescription = Item(placeId)
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -77,12 +73,11 @@ class ItemDaoTest {
         this.database?.placeDao()?.createPlace(placeDemo)
         this.database?.itemDao()?.insertItem(newPlaceDescription)
         val placeAdded = LiveDataTestUtil().getValue(this.database!!.itemDao().getItems(placeId))!![0]
-        placeAdded.isSelected = true
         this.database?.itemDao()?.updateItem(placeAdded)
 
         //TEST
         val items = LiveDataTestUtil().getValue(this.database!!.itemDao().getItems(placeId))
-        assertTrue(items!!.size == 1 && items[0].isSelected)
+        assertTrue(items!!.size == 1)
     }
 
     @Test

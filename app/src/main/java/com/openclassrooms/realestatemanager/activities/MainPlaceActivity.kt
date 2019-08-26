@@ -12,8 +12,9 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.openclassrooms.realestatemanager.R
-import com.openclassrooms.realestatemanager.placelist.recyclerview.PlaceRecyclerAdapter
+import com.openclassrooms.realestatemanager.todolist.recyclerview.PlaceRecyclerAdapter
 import com.openclassrooms.realestatemanager.fragments.DetailListFragment
+import com.openclassrooms.realestatemanager.models.Place
 
 /**
  * Main Kotlin activity to implement RecyclerView
@@ -22,6 +23,7 @@ class MainPlaceActivity : AppCompatActivity(), PlaceRecyclerAdapter.ItemClickLis
 
     private val fragmentDetailList = DetailListFragment()
     private var mAdapterPlace: RecyclerView.Adapter<PlaceRecyclerAdapter.ViewHolder>? = null
+    val listOfPlaces: MutableList<Place>? = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +32,19 @@ class MainPlaceActivity : AppCompatActivity(), PlaceRecyclerAdapter.ItemClickLis
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.colorTitle))
         setSupportActionBar(toolbar)
 
+        val newPlace = Place(0, "house", "Manhattan", "17.870.000",
+                5, "Cum saepe multa, tum memini domi in hemicyclio sedentem, ut solebat, cum et ego essem una et pauci admodum familiares, in eum sermonem illum incidere qui tum forte multis erat in ore. Meministi enim profecto, Attice, et eo magis, quod P. Sulpicio utebare multum, cum is tribunus plebis capitali odio a Q. Pompeio, qui tum erat consul, dissideret, quocum coniunctissime et amantissime vixerat, quanta esset hominum vel admiratio vel querella.",
+                "picture", "Address Manhattan", "Free", "06-12-18", "John")
+
+        //Create a list of places
+
+        listOfPlaces!!.add(newPlace)
+
         // RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = PlaceRecyclerAdapter(this)
-        mAdapterPlace = PlaceRecyclerAdapter(this)
+        recyclerView.adapter = PlaceRecyclerAdapter(this, listOfPlaces)
+        mAdapterPlace = PlaceRecyclerAdapter(this, listOfPlaces)
 
         // Configure screen
         detectSizeScreen()

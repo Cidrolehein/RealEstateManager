@@ -59,6 +59,7 @@
             android:textSize="@dimen/detail_title_size" />
 
         <TextView
+            android:id="@+id/place_description"
             style="@style/Title_List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
